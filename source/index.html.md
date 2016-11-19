@@ -11,7 +11,6 @@ toc_footers:
 includes:
   - errors
 
-search: true
 ---
 
 # 简介
@@ -22,7 +21,7 @@ search: true
 
 # 用户认证
 
-> 用户登录后，需要在请求的http头部添加Access-Token, 从而让服务器知道当前的用户登录状态
+用户登录后，需要在请求的http头部添加Access-Token, 从而让服务器知道当前的用户登录状态
 
 
 ```shell
@@ -46,7 +45,7 @@ curl /v1/users/signin
 ```
 
 
-> 返回
+返回
 
 ```json
   profile{
@@ -93,4 +92,38 @@ phone | string | 手机号码.
 password | string | 登录密码.
 sms_token | string | 手机验证码.
 username | string | 用户名.
+
+## 发送验证码(不校验用户是否存在)
+
+### HTTP Request
+
+`POST /v1/sms_tokens`
+
+```shell
+curl /v1/sms_token -d "phone=15618899988"
+```
+测试环境返回
+
+```json
+  {
+    "sms_token": 12345
+  }
+```
+
+## 发送验证码(校验用户是否存在)
+
+### HTTP Request
+
+`POST /v1/sms_tokens/send`
+
+```shell
+curl /v1/sms_tokens/send -d "phone=15618899988"
+```
+测试环境返回
+
+```json
+  {
+    "sms_token": 12345
+  }
+```
 
