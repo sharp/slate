@@ -88,7 +88,7 @@
     </style>
     <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print.css" rel="stylesheet" media="print" />
-      <script src="javascripts/all.js"></script>
+      <script src="javascripts/all_nosearch.js"></script>
   </head>
 
   <body class="index" data-languages="[&quot;shell&quot;]">
@@ -103,10 +103,6 @@
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
         </div>
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-        <ul class="search-results"></ul>
       <div id="toc">
       </div>
         <ul class="toc-footer">
@@ -125,9 +121,7 @@
 
 <h1 id=">用户认证</h1>
 
-<blockquote>
 <p>用户登录后，需要在请求的http头部添加Access-Token, 从而让服务器知道当前的用户登录状态</p>
-</blockquote>
 <pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
 curl <span class="s2">"url.com/v1/xxx"</span>
   -H <span class="s2">"Access-Token: 登录令牌"</span>
@@ -144,9 +138,7 @@ curl <span class="s2">"url.com/v1/xxx"</span>
   -d <span class="s2">"phone=15618890099&amp;password=12345678"</span>
 </code></pre>
 
-<blockquote>
 <p>返回</p>
-</blockquote>
 <pre class="highlight json"><code><span class="w">  </span><span class="err">profile</span><span class="p">{</span><span class="w">
     </span><span class="nt">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
@@ -225,6 +217,34 @@ curl <span class="s2">"url.com/v1/xxx"</span>
 <td>用户名.</td>
 </tr>
 </tbody></table>
+
+<h2 id=">发送验证码(不校验用户是否存在)</h2>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /v1/sms_tokens</code></p>
+<pre class="highlight shell"><code>curl /v1/sms_token -d <span class="s2">"phone=15618899988"</span>
+</code></pre>
+
+<p>测试环境返回</p>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"sms_token"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<h2 id=">发送验证码(校验用户是否存在)</h2>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST /v1/sms_tokens/send</code></p>
+<pre class="highlight shell"><code>curl /v1/sms_tokens/send -d <span class="s2">"phone=15618899988"</span>
+</code></pre>
+
+<p>测试环境返回</p>
+<pre class="highlight json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"sms_token"</span><span class="p">:</span><span class="w"> </span><span class="mi">12345</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
 
           <h1 id="errors">Errors</h1>
 
