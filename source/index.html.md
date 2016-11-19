@@ -3,7 +3,7 @@ title: API Reference
 
 language_tabs:
   - shell
-  - ruby
+  - geeift
   - python
   - javascript
 
