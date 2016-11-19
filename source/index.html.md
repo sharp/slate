@@ -15,9 +15,9 @@ includes:
 
 # 简介
 
-正式服务器地址: http://geeift.com
+> 正式服务器地址: http://geeift.com
 
-测试服务器地址: http://test.geeift.com
+> 测试服务器地址: http://test.geeift.com
 
 # 用户认证
 
@@ -73,7 +73,8 @@ password | string | 登录密码.
 ```shell
 curl /v1/users/signup -d "phone=15618899988&password=12345678&sms_token=12345&username=sharp"
 ```
-> 返回
+
+返回
 
 ```json
   profile{
@@ -102,7 +103,9 @@ username | string | 用户名.
 ```shell
 curl /v1/sms_token -d "phone=15618899988"
 ```
+
 测试环境返回
+
 
 ```json
   {
@@ -119,6 +122,7 @@ curl /v1/sms_token -d "phone=15618899988"
 ```shell
 curl /v1/sms_tokens/send -d "phone=15618899988"
 ```
+
 测试环境返回
 
 ```json
