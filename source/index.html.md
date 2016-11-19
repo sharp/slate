@@ -64,9 +64,6 @@ Parameter | Type | Description
 phone | string | 手机号码.
 password | string | 登录密码.
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
 
 ## 注册
 
@@ -87,8 +84,6 @@ curl /v1/users/signup -d "phone=15618899988&password=12345678&sms_token=12345&us
     "phone": 15618890099
   }
 ```
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
 ### Query Parameters
 
