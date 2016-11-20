@@ -121,13 +121,18 @@
 <p>测试服务器地址: http://test.geeift.com</p>
 </blockquote>
 
+<hr>
+
 <h1 id=">用户认证</h1>
 
 <p>用户登录后，需要在请求的http头部添加Access-Token, 从而让服务器知道当前的用户登录状态</p>
-<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"url.com/v1/xxx"</span>
+
+<p>With shell, you can just pass the correct header with each request</p>
+<pre class="highlight shell"><code>curl <span class="s2">"url.com/v1/xxx"</span>
   -H <span class="s2">"Access-Token: 登录令牌"</span>
 </code></pre>
+
+<hr>
 
 <h1 id=">用户</h1>
 
