@@ -19,22 +19,29 @@ includes:
 
 > 测试服务器地址: http://test.geeift.com
 
+
+--- 
+
 # 用户认证
 
 用户登录后，需要在请求的http头部添加Access-Token, 从而让服务器知道当前的用户登录状态
 
+With shell, you can just pass the correct header with each request
 
 ```shell
-# With shell, you can just pass the correct header with each request
 curl "url.com/v1/xxx"
   -H "Access-Token: 登录令牌"
 ```
+
+---
 
 # 用户
 
 ## 登录
 
+
 ### HTTP Request
+
 
 `GET /v1/users/signin`
 
