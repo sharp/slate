@@ -2,7 +2,7 @@
 title: API Reference
 
 language_tabs:
-  - shell
+  - ruby
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
